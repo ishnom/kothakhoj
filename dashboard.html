@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - KoshaKhoj</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="theme-container">
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <h1>KoshaKhoj</h1>
+            <p>Find Your Perfect Room</p>
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="listings.html">Rooms</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="nav-buttons">
+            <div class="user-dropdown">
+              <button class="user-button">
+                <img src="https://source.unsplash.com/random/100x100?portrait,1" alt="User" class="user-avatar">
+                <span class="user-name">Ishwor Subedi</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="dropdown-menu">
+                <a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="dashboard.html?tab=profile"><i class="fas fa-user"></i> My Profile</a>
+                <a href="dashboard.html?tab=listings"><i class="fas fa-list"></i> My Listings</a>
+                <a href="dashboard.html?tab=messages"><i class="fas fa-envelope"></i> Messages</a>
+                <a href="dashboard.html?tab=settings"><i class="fas fa-cog"></i> Settings</a>
+                <div class="dropdown-divider"></div>
+                <a href="#" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+              </div>
+            </div>
+            <button id="theme-toggle" class="btn-icon">
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
+        </nav>
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard-main">
+      <div class="container">
+        <div class="dashboard-container">
+          <!-- Sidebar -->
+          <div class="dashboard-sidebar d-none d-md-flex">
+            <div class="user-info">
+              <img src="https://source.unsplash.com/random/100x100?portrait,1" alt="User" class="user-avatar">
+              <div class="user-details">
+                <h3 class="user-name">Ishwor Subedi</h3>
+                <p class="user-type">Property Owner</p>
+              </div>
+            </div>
+            
+            <!-- Stats Section -->
+            <div class="sidebar-section">
+              <h4>Quick Stats</h4>
+              <div class="sidebar-stats">
+                <div class="sidebar-stat">
+                  <i class="fas fa-home"></i> 4 Listings
+                </div>
+                <div class="sidebar-stat">
+                  <i class="fas fa-eye"></i> 128 Views
+                </div>
+                <div class="sidebar-stat">
+                  <i class="fas fa-star"></i> 4.8 Rating
+                </div>
+              </div>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="dashboard-nav">
+              <ul>
+                <li><a href="#overview" class="active" data-tab="overview"><i class="fas fa-home"></i> Overview</a></li>
+                <li><a href="#listings" data-tab="listings"><i class="fas fa-list"></i> My Listings</a></li>
+                <li><a href="#messages" data-tab="messages"><i class="fas fa-envelope"></i> Messages <span class="badge">3</span></a></li>
+                <li><a href="#bookmarks" data-tab="bookmarks"><i class="fas fa-bookmark"></i> Saved Rooms</a></li>
+                <li><a href="#profile" data-tab="profile"><i class="fas fa-user"></i> My Profile</a></li>
+                <li><a href="#settings" data-tab="settings"><i class="fas fa-cog"></i> Settings</a></li>
+              </ul>
+            </nav>
+            
+            <!-- Recent Activity Section -->
+            <div class="sidebar-section">
+              <h4>Recent Activity</h4>
+              <div class="sidebar-activity">
+                <div class="activity-item">
+                  <div class="activity-icon"><i class="fas fa-comment"></i></div>
+                  <div class="activity-content">
+                    <p class="activity-text">New message from Sita Thapa</p>
+                    <span class="activity-time">2 hours ago</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon"><i class="fas fa-eye"></i></div>
+                  <div class="activity-content">
+                    <p class="activity-text">Your Thamel listing got 5 new views</p>
+                    <span class="activity-time">Yesterday</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon"><i class="fas fa-heart"></i></div>
+                  <div class="activity-content">
+                    <p class="activity-text">Someone saved your Baluwatar listing</p>
+                    <span class="activity-time">3 days ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quick Links Section -->
+            <div class="sidebar-section">
+              <h4>Quick Links</h4>
+              <div class="sidebar-quick-links">
+                <a href="post-room.html" class="sidebar-quick-link">
+                  <i class="fas fa-plus-circle"></i> Post New Room
+                </a>
+                <a href="listings.html" class="sidebar-quick-link">
+                  <i class="fas fa-search"></i> Browse Listings
+                </a>
+                <a href="#" class="sidebar-quick-link">
+                  <i class="fas fa-question-circle"></i> Help Center
+                </a>
+              </div>
+            </div>
+            
+            <div class="sidebar-footer">
+              <a href="post-room.html" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Post New Room</a>
+              <button id="sidebar-logout" class="btn btn-outline btn-block"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+          </div>
+
+          <!-- Main Content -->
+          <div class="dashboard-content">
+            <!-- Overview Tab -->
+            <div class="dashboard-tab active" id="overview-tab">
+              <div class="dashboard-welcome">
+                <h2>Property Owner Dashboard</h2>
+                <p>Welcome back, <span class="user-name">User</span>! Here's an overview of your account.</p>
+              </div>
+              
+              <div class="stats-container">
+                <div class="stat-card owner-only">
+                  <div class="stat-icon">
+                    <i class="fas fa-home"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h3>0</h3>
+                    <p>Active Listings</p>
+                  </div>
+                </div>
+                <div class="stat-card owner-only">
+                  <div class="stat-icon">
+                    <i class="fas fa-eye"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h3>0</h3>
+                    <p>Total Views</p>
+                  </div>
+                </div>
+                <div class="stat-card owner-only">
+                  <div class="stat-icon">
+                    <i class="fas fa-comment"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h3>0</h3>
+                    <p>Inquiries</p>
+                  </div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="fas fa-bookmark"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h3>0</h3>
+                    <p>Saved Rooms</p>
+                  </div>
+                </div>
+                
+                <!-- Room seeker specific stats -->
+                <div class="stat-card seeker-only" style="display: none;">
+                  <div class="stat-icon">
+                    <i class="fas fa-search"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h3>0</h3>
+                    <p>Viewed Rooms</p>
+                  </div>
+                </div>
+                <div class="stat-card seeker-only" style="display: none;">
+                  <div class="stat-icon">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h3>0</h3>
+                    <p>Contacted Owners</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="dashboard-sections">
+                <div class="dashboard-section owner-only">
+                  <div class="section-header">
+                    <h3>Recent Listings</h3>
+                    <a href="#" data-tab-link="listings" class="btn btn-text">View All <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="section-content" id="recent-listings">
+                    <div class="loading-spinner">
+                      <div class="spinner"></div>
+                      <p>Loading your listings...</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="dashboard-section seeker-only" style="display: none;">
+                  <div class="section-header">
+                    <h3>Recommended Rooms</h3>
+                    <a href="listings.html" class="btn btn-text">View All <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="section-content" id="recommended-rooms">
+                    <div class="empty-state">
+                      <i class="fas fa-search"></i>
+                      <h3>Finding Perfect Matches</h3>
+                      <p>We're analyzing your preferences to find the best rooms for you.</p>
+                      <a href="listings.html" class="btn btn-primary">Browse All Rooms</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="dashboard-section">
+                  <div class="section-header">
+                    <h3>Saved Rooms</h3>
+                    <a href="#" data-tab-link="saved" class="btn btn-text">View All <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="section-content" id="saved-rooms-container">
+                    <div class="loading-spinner">
+                      <div class="spinner"></div>
+                      <p>Loading saved rooms...</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="dashboard-section">
+                  <div class="section-header">
+                    <h3>Recent Messages</h3>
+                    <a href="#" data-tab-link="messages" class="btn btn-text">View All <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="section-content">
+                    <div class="message-previews">
+                      <div class="empty-state">
+                        <i class="fas fa-envelope"></i>
+                        <h3>No Messages Yet</h3>
+                        <p>Your message inbox is empty.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Listings Tab -->
+            <div class="dashboard-tab" id="listings-tab">
+              <div class="dashboard-header">
+                <h2>My Listings</h2>
+                <a href="post-room.html" class="btn btn-primary"><i class="fas fa-plus"></i> Post New Room</a>
+              </div>
+
+              <div class="listings-filter">
+                <div class="filter-group">
+                  <label for="listing-status">Status:</label>
+                  <select id="listing-status">
+                    <option value="all">All Listings</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                  </select>
+                </div>
+                <div class="filter-group">
+                  <label for="listing-sort">Sort By:</label>
+                  <select id="listing-sort">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="views">Most Views</option>
+                  </select>
+                </div>
+                <div class="filter-group search-group">
+                  <input type="text" id="listing-search" placeholder="Search your listings...">
+                  <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+
+              <div class="my-listings" id="my-listings">
+                <!-- Will be populated by JavaScript -->
+                <div class="loading-spinner">
+                  <div class="spinner"></div>
+                  <p>Loading your listings...</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Messages Tab -->
+            <div class="dashboard-tab" id="messages-tab">
+              <div class="dashboard-header">
+                <h2>Messages</h2>
+              </div>
+
+              <div class="messages-container">
+                <div class="messages-sidebar">
+                  <div class="messages-search">
+                    <input type="text" placeholder="Search messages...">
+                    <button><i class="fas fa-search"></i></button>
+                  </div>
+                  <div class="message-list">
+                    <div class="message-preview active unread">
+                      <img src="https://source.unsplash.com/random/100x100?portrait,5" alt="User" class="message-avatar">
+                      <div class="message-preview-content">
+                        <div class="message-preview-header">
+                          <h4>Sita Thapa</h4>
+                          <span class="message-time">2h</span>
+                        </div>
+                        <p>Hello, I'm interested in your room in Thamel...</p>
+                      </div>
+                    </div>
+                    <div class="message-preview unread">
+                      <img src="https://source.unsplash.com/random/100x100?portrait,6" alt="User" class="message-avatar">
+                      <div class="message-preview-content">
+                        <div class="message-preview-header">
+                          <h4>Anil Gurung</h4>
+                          <span class="message-time">1d</span>
+                        </div>
+                        <p>Can I visit the apartment this weekend?...</p>
+                      </div>
+                    </div>
+                    <div class="message-preview">
+                      <img src="https://source.unsplash.com/random/100x100?portrait,7" alt="User" class="message-avatar">
+                      <div class="message-preview-content">
+                        <div class="message-preview-header">
+                          <h4>Priya Sharma</h4>
+                          <span class="message-time">3d</span>
+                        </div>
+                        <p>Thank you for the information. I'll get back...</p>
+                      </div>
+                    </div>
+                    <div class="message-preview">
+                      <img src="https://source.unsplash.com/random/100x100?portrait,8" alt="User" class="message-avatar">
+                      <div class="message-preview-content">
+                        <div class="message-preview-header">
+                          <h4>Bikash Rai</h4>
+                          <span class="message-time">1w</span>
+                        </div>
+                        <p>Is the room still available? I would like to...</p>
+                      </div>
+                    </div>
+                    <div class="message-preview">
+                      <img src="https://source.unsplash.com/random/100x100?portrait,9" alt="User" class="message-avatar">
+                      <div class="message-preview-content">
+                        <div class="message-preview-header">
+                          <h4>Manisha Shrestha</h4>
+                          <span class="message-time">2w</span>
+                        </div>
+                        <p>Thank you for showing me the apartment...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="message-detail">
+                  <div class="message-header">
+                    <div class="message-user">
+                      <img src="https://source.unsplash.com/random/100x100?portrait,5" alt="User" class="message-avatar">
+                      <div>
+                        <h3>Sita Thapa</h3>
+                        <p>Last active: Today at 10:45 AM</p>
+                      </div>
+                    </div>
+                    <div class="message-actions">
+                      <button class="btn-icon" title="Call"><i class="fas fa-phone"></i></button>
+                      <button class="btn-icon" title="Delete Conversation"><i class="fas fa-trash"></i></button>
+                      <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                  </div>
+                  <div class="message-body">
+                    <div class="message-date-divider">
+                      <span>Today</span>
+                    </div>
+                    <div class="message-bubble received">
+                      <div class="message-text">
+                        <p>Hello, I'm interested in your room in Thamel. Is it still available?</p>
+                      </div>
+                      <div class="message-time">10:30 AM</div>
+                    </div>
+                    <div class="message-bubble sent">
+                      <div class="message-text">
+                        <p>Hi Sita, yes the room is still available. When would you like to see it?</p>
+                      </div>
+                      <div class="message-time">10:35 AM</div>
+                    </div>
+                    <div class="message-bubble received">
+                      <div class="message-text">
+                        <p>That's great! I'm free this weekend, either Saturday or Sunday afternoon. Would that work for you?</p>
+                      </div>
+                      <div class="message-time">10:40 AM</div>
+                    </div>
+                    <div class="message-bubble sent">
+                      <div class="message-text">
+                        <p>Saturday afternoon works for me. How about 2 PM?</p>
+                      </div>
+                      <div class="message-time">10:42 AM</div>
+                    </div>
+                    <div class="message-bubble received">
+                      <div class="message-text">
+                        <p>Perfect! 2 PM on Saturday it is. Could you please share the exact location?</p>
+                      </div>
+                      <div class="message-time">10:45 AM</div>
+                    </div>
+                  </div>
+                  <div class="message-input">
+                    <textarea placeholder="Type your message..."></textarea>
+                    <div class="message-input-actions">
+                      <button class="btn-icon" title="Attach File"><i class="fas fa-paperclip"></i></button>
+                      <button class="btn-icon" title="Send Photo"><i class="fas fa-image"></i></button>
+                      <button class="btn-primary send-message"><i class="fas fa-paper-plane"></i> Send</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bookmarks Tab -->
+            <div class="dashboard-tab" id="bookmarks-tab">
+              <div class="dashboard-header">
+                <h2>Saved Rooms</h2>
+              </div>
+
+              <div class="saved-rooms-container" id="saved-rooms-container">
+                <!-- Will be populated by JavaScript -->
+                <div class="loading-spinner">
+                  <div class="spinner"></div>
+                  <p>Loading saved rooms...</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile Tab -->
+            <div class="dashboard-tab" id="profile-tab">
+              <div class="dashboard-header">
+                <h2>My Profile</h2>
+                <button class="btn btn-primary" id="edit-profile-btn"><i class="fas fa-edit"></i> Edit Profile</button>
+              </div>
+
+              <div class="profile-container">
+                <div class="profile-header">
+                  <div class="profile-avatar-container">
+                    <img src="https://source.unsplash.com/random/200x200?portrait,1" alt="User" class="profile-avatar">
+                    <button class="change-avatar-btn" id="change-avatar-btn"><i class="fas fa-camera"></i></button>
+                  </div>
+                  <div class="profile-info">
+                    <h3>Ishwor Subedi</h3>
+                    <p class="profile-type">Property Owner</p>
+                    <p class="profile-joined"><i class="fas fa-calendar-alt"></i> Joined: January 2023</p>
+                    <div class="profile-stats">
+                      <div class="profile-stat">
+                        <span class="stat-value">4</span>
+                        <span class="stat-label">Listings</span>
+                      </div>
+                      <div class="profile-stat">
+                        <span class="stat-value">128</span>
+                        <span class="stat-label">Views</span>
+                      </div>
+                      <div class="profile-stat">
+                        <span class="stat-value">12</span>
+                        <span class="stat-label">Inquiries</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="profile-details">
+                  <div class="profile-section">
+                    <h3>Personal Information</h3>
+                    <div class="profile-field">
+                      <span class="field-label">Full Name:</span>
+                      <span class="field-value">Ishwor Subedi</span>
+                    </div>
+                    <div class="profile-field">
+                      <span class="field-label">Email:</span>
+                      <span class="field-value">ish @example.com</span>
+                    </div>
+                    <div class="profile-field">
+                      <span class="field-label">Phone:</span>
+                      <span class="field-value">+977 9801234567</span>
+                    </div>
+                    <div class="profile-field">
+                      <span class="field-label">WhatsApp:</span>
+                      <span class="field-value">+977 9801234567</span>
+                    </div>
+                  </div>
+
+                  <div class="profile-section">
+                    <h3>Address</h3>
+                    <div class="profile-field">
+                      <span class="field-label">Location:</span>
+                      <span class="field-value">Thamel, Kathmandu</span>
+                    </div>
+                    <div class="profile-field">
+                      <span class="field-label">Address:</span>
+                      <span class="field-value">House #123, Near Thamel Chowk</span>
+                    </div>
+                  </div>
+
+                  <div class="profile-section">
+                    <h3>About Me</h3>
+                    <p class="profile-bio">
+                      I'm a property owner in Thamel with several rooms and apartments available for rent. I've been in the rental business for over 5 years and take pride in providing clean, comfortable accommodations for both locals and tourists.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="dashboard-tab" id="settings-tab">
+              <div class="dashboard-header">
+                <h2>Account Settings</h2>
+              </div>
+
+              <div class="settings-container">
+                <div class="settings-section">
+                  <h3>Account Preferences</h3>
+                  <form class="settings-form">
+                    <div class="form-group">
+                      <label for="email-notifications">Email Notifications</label>
+                      <div class="toggle-switch">
+                        <input type="checkbox" id="email-notifications" checked>
+                        <label for="email-notifications"></label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="sms-notifications">SMS Notifications</label>
+                      <div class="toggle-switch">
+                        <input type="checkbox" id="sms-notifications">
+                        <label for="sms-notifications"></label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="listing-visibility">Listing Visibility</label>
+                      <select id="listing-visibility">
+                        <option value="public">Public - Visible to everyone</option>
+                        <option value="registered">Registered Users Only</option>
+                        <option value="private">Private - By invitation only</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="language">Language</label>
+                      <select id="language">
+                        <option value="en">English</option>
+                        <option value="ne">Nepali</option>
+                      </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Preferences</button>
+                  </form>
+                </div>
+
+                <div class="settings-section">
+                  <h3>Security</h3>
+                  <form class="settings-form">
+                    <div class="form-group">
+                      <label for="current-password">Current Password</label>
+                      <input type="password" id="current-password" placeholder="Enter current password">
+                    </div>
+                    <div class="form-group">
+                      <label for="new-password">New Password</label>
+                      <input type="password" id="new-password" placeholder="Enter new password">
+                    </div>
+                    <div class="form-group">
+                      <label for="confirm-password">Confirm New Password</label>
+                      <input type="password" id="confirm-password" placeholder="Confirm new password">
+                    </div>
+                    <div class="form-group">
+                      <label for="two-factor">Two-Factor Authentication</label>
+                      <div class="toggle-switch">
+                        <input type="checkbox" id="two-factor">
+                        <label for="two-factor"></label>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Password</button>
+                  </form>
+                </div>
+
+                <div class="settings-section danger-zone">
+                  <h3>Danger Zone</h3>
+                  <div class="danger-action">
+                    <div>
+                      <h4>Deactivate Account</h4>
+                      <p>Temporarily disable your account. You can reactivate it anytime.</p>
+                    </div>
+                    <button class="btn btn-outline danger">Deactivate</button>
+                  </div>
+                  <div class="danger-action">
+                    <div>
+                      <h4>Delete Account</h4>
+                      <p>Permanently delete your account and all your data. This action cannot be undone.</p>
+                    </div>
+                    <button class="btn btn-outline danger">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>KoshaKhoj</h3>
+            <p>Finding your perfect room in Kathmandu made simple, direct, and commission-free.</p>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="listings.html">Find Rooms</a></li>
+              <li><a href="post-room.html">Post a Room</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Popular Areas</h3>
+            <ul>
+              <li><a href="listings.html?location=thamel">Thamel</a></li>
+              <li><a href="listings.html?location=baluwatar">Baluwatar</a></li>
+              <li><a href="listings.html?location=lazimpat">Lazimpat</a></li>
+              <li><a href="listings.html?location=patan">Patan</a></li>
+              <li><a href="listings.html?location=bhaktapur">Bhaktapur</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Thamel, Kathmandu, Nepal</p>
+            <p><i class="fas fa-phone"></i> +977 9812345678</p>
+            <p><i class="fas fa-envelope"></i> info@koshakhoj.com</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 KoshaKhoj. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div id="edit-profile-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Edit Profile</h2>
+      <form id="edit-profile-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="edit-name">Full Name</label>
+            <input type="text" id="edit-name" name="name" value="Ishwor Subedi" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-user-type">User Type</label>
+            <select id="edit-user-type" name="user-type" required>
+              <option value="owner" selected>Property Owner</option>
+              <option value="agent">Rental Agent</option>
+              <option value="tenant">Tenant</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="edit-email">Email</label>
+            <input type="email" id="edit-email" name="email" value="rajesh@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-phone">Phone</label>
+            <input type="tel" id="edit-phone" name="phone" value="9801234567" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="edit-whatsapp">WhatsApp Number</label>
+          <input type="tel" id="edit-whatsapp" name="whatsapp" value="9801234567">
+        </div>
+        <div class="form-group">
+          <label for="edit-location">Location</label>
+          <select id="edit-location" name="location" required>
+            <option value="thamel" selected>Thamel</option>
+            <option value="baluwatar">Baluwatar</option>
+            <option value="lazimpat">Lazimpat</option>
+            <option value="patan">Patan</option>
+            <option value="bhaktapur">Bhaktapur</option>
+            <option value="kirtipur">Kirtipur</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="edit-address">Address</label>
+          <input type="text" id="edit-address" name="address" value="House #123, Near Thamel Chowk" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-bio">About Me</label>
+          <textarea id="edit-bio" name="bio" rows="4" required>I'm a property owner in Thamel with several rooms and apartments available for rent. I've been in the rental business for over 5 years and take pride in providing clean, comfortable accommodations for both locals and tourists.</textarea>
+        </div>
+        <div class="form-buttons">
+          <button type="button" class="btn btn-secondary" id="cancel-edit">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Listing Modal -->
+  <div id="edit-listing-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Edit Listing</h2>
+      <form id="edit-listing-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="edit-listing-title">Room Title</label>
+            <input type="text" id="edit-listing-title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-listing-price">Monthly Rent (NPR)</label>
+            <input type="number" id="edit-listing-price" name="price" min="0" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="edit-listing-type">Room Type</label>
+            <select id="edit-listing-type" name="type" required>
+              <option value="shared">Shared Room</option>
+              <option value="private">Private Room</option>
+              <option value="apartment">Full Apartment</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="edit-listing-furnishing">Furnishing</label>
+            <select id="edit-listing-furnishing" name="furnishing" required>
+              <option value="furnished">Furnished</option>
+              <option value="unfurnished">Unfurnished</option>
+              <option value="semi-furnished">Semi-Furnished</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="edit-listing-description">Description</label>
+          <textarea id="edit-listing-description" name="description" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Amenities</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-label">
+              <input type="checkbox" name="amenities" value="wifi"> WiFi
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="amenities" value="attached-bathroom"> Attached Bathroom
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="amenities" value="kitchen"> Kitchen Access
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="amenities" value="hot-water"> Hot Water
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="amenities" value="parking"> Parking
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="amenities" value="tv"> TV
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="amenities" value="washing-machine"> Washing Machine
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="amenities" value="balcony"> Balcony
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="edit-listing-status">Listing Status</label>
+          <select id="edit-listing-status" name="status" required>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+        <div class="form-buttons">
+          <button type="button" class="btn btn-secondary" id="cancel-edit-listing">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
+

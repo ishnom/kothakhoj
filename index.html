@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KothaKhoj - Find Your Perfect Room in Kathmandu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="theme-container">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>KothaKhoj</h1>
+                        <p>Find Your Perfect Room</p>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="listings.html">Rooms</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="nav-buttons">
+                        <a href="login.html" class="btn btn-secondary">Login</a>
+                        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                        <button id="theme-toggle" class="btn-icon">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h2>Find Your Perfect Room in Kathmandu</h2>
+                        <p>Discover affordable and comfortable rooms across Kathmandu without any broker fees</p>
+                        
+                        <div class="search-container">
+                            <form id="search-form">
+                                <div class="search-inputs">
+                                    <div class="search-group">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <select id="location" name="location">
+                                            <option value="">All Locations</option>
+                                            <option value="thamel">Thamel</option>
+                                            <option value="baluwatar">Baluwatar</option>
+                                            <option value="lazimpat">Lazimpat</option>
+                                            <option value="patan">Patan</option>
+                                            <option value="bhaktapur">Bhaktapur</option>
+                                            <option value="kirtipur">Kirtipur</option>
+                                        </select>
+                                    </div>
+                                    <div class="search-group">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        <select id="price" name="price">
+                                            <option value="">Any Price</option>
+                                            <option value="0-5000">Under Rs. 5,000</option>
+                                            <option value="5000-10000">Rs. 5,000 - Rs. 10,000</option>
+                                            <option value="10000-15000">Rs. 10,000 - Rs. 15,000</option>
+                                            <option value="15000-20000">Rs. 15,000 - Rs. 20,000</option>
+                                            <option value="20000+">Above Rs. 20,000</option>
+                                        </select>
+                                    </div>
+                                    <div class="search-group">
+                                        <i class="fas fa-home"></i>
+                                        <select id="type" name="type">
+                                            <option value="">All Types</option>
+                                            <option value="furnished">Furnished</option>
+                                            <option value="unfurnished">Unfurnished</option>
+                                            <option value="shared">Shared Room</option>
+                                            <option value="private">Private Room</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary search-btn">
+                                    <i class="fas fa-search"></i> Search
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="hero-cta">
+                            <a href="listings.html" class="btn btn-primary">Find a Room</a>
+                            <a href="post-room.html" class="btn btn-secondary">Post a Room</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="featured">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Featured Rooms</h2>
+                        <a href="listings.html" class="view-more">View More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="room-grid" id="featured-rooms">
+                        <!-- Rooms will be loaded dynamically with JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="how-it-works">
+                <div class="container">
+                    <h2>How It Works</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>Search</h3>
+                            <p>Find rooms that match your preferences in your desired location</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>View</h3>
+                            <p>Browse photos and details to find your perfect match</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3>Contact</h3>
+                            <p>Connect directly with owners - no middlemen or extra fees</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>Move In</h3>
+                            <p>Finalize details with the owner and move into your new room</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="testimonials">
+                <div class="container">
+                    <h2>What Our Users Say</h2>
+                    <div class="testimonial-slider" id="testimonial-slider">
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p>"I found my perfect room in Thamel within just 2 days of searching on KothaKhoj. The direct contact with the owner made everything so much easier!"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="images/female.jpeg" alt="Testimonial Author">
+                                <div>
+                                    <h4>Aarav Sharma</h4>
+                                    <p>Student at Tribhuvan University</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p>"As a property owner, I was able to find reliable tenants quickly without paying any commission. The platform is so easy to use!"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="images/female.jpeg" alt="Testimonial Author">
+                                <div>
+                                    <h4>Sita Thapa</h4>
+                                    <p>Property Owner in Patan</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p>"The detailed filters helped me find exactly what I was looking for - a furnished room near my office in Lazimpat. Highly recommended!"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="images/female.jpeg" alt="Testimonial Author">
+                                <div>
+                                    <h4>Rajesh Magar</h4>
+                                    <p>IT Professional</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-controls">
+                        <button id="prev-testimonial" class="btn-icon"><i class="fas fa-chevron-left"></i></button>
+                        <button id="next-testimonial" class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <div class="container">
+                    <div class="cta-content">
+                        <h2>Have a Room to Rent?</h2>
+                        <p>List your property for free and connect with potential tenants directly</p>
+                        <a href="post-room.html" class="btn btn-primary">Post Your Room Now</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>KothaKhoj</h3>
+                        <p>Finding your perfect room in Kathmandu made simple, direct, and commission-free.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="listings.html">Find Rooms</a></li>
+                            <li><a href="post-room.html">Post a Room</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Popular Areas</h3>
+                        <ul>
+                            <li><a href="listings.html?location=thamel">Thamel</a></li>
+                            <li><a href="listings.html?location=baluwatar">Baluwatar</a></li>
+                            <li><a href="listings.html?location=lazimpat">Lazimpat</a></li>
+                            <li><a href="listings.html?location=patan">Patan</a></li>
+                            <li><a href="listings.html?location=bhaktapur">Bhaktapur</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Thamel, Kathmandu, Nepal</p>
+                        <p><i class="fas fa-phone"></i> +977 9812345678</p>
+                        <p><i class="fas fa-envelope"></i> info@kothakhoj.com</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 KothaKhoj. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
+

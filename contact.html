@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - KothaKhoj</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="theme-container">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>KothaKhoj</h1>
+                        <p>Find Your Perfect Room</p>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Rooms</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                    <div class="nav-buttons">
+                        <a href="post-room.html" class="btn btn-primary">Post a Room</a>
+                        <button id="theme-toggle" class="btn-icon">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="contact-header">
+                <div class="container">
+                    <h2>Contact Us</h2>
+                    <p>We're here to help with any questions or feedback</p>
+                </div>
+            </section>
+
+            <section class="contact-main">
+                <div class="container">
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <h3>Get in Touch</h3>
+                            <p>Have questions about finding a room or listing your property? Our team is ready to assist you.</p>
+                            
+                            <div class="contact-methods">
+                                <div class="contact-method">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Our Office</h4>
+                                        <p>Thamel, Kathmandu, Nepal</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-method">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Phone</h4>
+                                        <p>+977 9812345678</p>
+                                        <p>Sunday - Friday, 9am - 5pm</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-method">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Email</h4>
+                                        <p>info@kothakhoj.com</p>
+                                        <p>support@kothakhoj.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-method">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Social Media</h4>
+                                        <div class="social-links">
+                                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="office-hours">
+                                <h4>Office Hours</h4>
+                                <ul>
+                                    <li><span>Sunday - Friday:</span> 9:00 AM - 5:00 PM</li>
+                                    <li><span>Saturday:</span> Closed</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-form-container">
+                            <h3>Send Us a Message</h3>
+                            <form id="contact-form" class="contact-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name">Your Name*</label>
+                                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="email">Email Address*</label>
+                                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject">Subject*</label>
+                                    <select id="subject" name="subject" required>
+                                        <option value="">Select a subject</option>
+                                        <option value="general">General Inquiry</option>
+                                        <option value="listing">Listing Question</option>
+                                        <option value="support">Technical Support</option>
+                                        <option value="feedback">Feedback</option>
+                                        <option value="report">Report an Issue</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Your Message*</label>
+                                    <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="map-section">
+                <div class="container">
+                    <h3>Find Us</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.2080248847!2d85.30964021506156!3d27.71524798279048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18fcb77fd4f7%3A0x58099b8d37782dd0!2sThamel%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1625124512345!5m2!1sen!2snp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section class="faq-section compact">
+                <div class="container">
+                    <h3>Frequently Asked Questions</h3>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>How quickly will I receive a response to my inquiry?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We aim to respond to all inquiries within 24 hours during business days. For urgent matters, please call our customer support number.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>I'm having technical issues with the website. What should I do?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Please use the contact form and select "Technical Support" as the subject. Include details about the issue you're experiencing, including your device and browser information.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>How can I report a suspicious listing or user?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can report suspicious listings by clicking the "Report" button on the listing page. For reporting users or other issues, please use the contact form and select "Report an Issue" as the subject.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>KothaKhoj</h3>
+                        <p>Finding your perfect room in Kathmandu made simple, direct, and commission-free.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="listings.html">Find Rooms</a></li>
+                            <li><a href="post-room.html">Post a Room</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Popular Areas</h3>
+                        <ul>
+                            <li><a href="listings.html?location=thamel">Thamel</a></li>
+                            <li><a href="listings.html?location=baluwatar">Baluwatar</a></li>
+                            <li><a href="listings.html?location=lazimpat">Lazimpat</a></li>
+                            <li><a href="listings.html?location=patan">Patan</a></li>
+                            <li><a href="listings.html?location=bhaktapur">Bhaktapur</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Thamel, Kathmandu, Nepal</p>
+                        <p><i class="fas fa-phone"></i> +977 9812345678</p>
+                        <p><i class="fas fa-envelope"></i> info@kothakhoj.com</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 KothaKhoj. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
+

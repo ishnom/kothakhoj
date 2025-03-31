@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Room - KothaKhoj</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="theme-container">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>KothaKhoj</h1>
+                        <p>Find Your Perfect Room</p>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Rooms</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="nav-buttons">
+                        <a href="post-room.html" class="btn btn-primary active">Post a Room</a>
+                        <button id="theme-toggle" class="btn-icon">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="post-room-header">
+                <div class="container">
+                    <h2>Post Your Room</h2>
+                    <p>Fill in the details below to list your room on KothaKhoj</p>
+                </div>
+            </section>
+
+            <section class="post-room-form">
+                <div class="container">
+                    <div class="form-container">
+                        <div class="form-progress">
+                            <div class="progress-step active" data-step="1">
+                                <div class="step-number">1</div>
+                                <div class="step-label">Basic Details</div>
+                            </div>
+                            <div class="progress-line"></div>
+                            <div class="progress-step" data-step="2">
+                                <div class="step-number">2</div>
+                                <div class="step-label">Room Features</div>
+                            </div>
+                            <div class="progress-line"></div>
+                            <div class="progress-step" data-step="3">
+                                <div class="step-number">3</div>
+                                <div class="step-label">Photos</div>
+                            </div>
+                            <div class="progress-line"></div>
+                            <div class="progress-step" data-step="4">
+                                <div class="step-number">4</div>
+                                <div class="step-label">Contact Info</div>
+                            </div>
+                        </div>
+
+                        <form id="post-room-form">
+                            <!-- Step 1: Basic Details -->
+                            <div class="form-step active" data-step="1">
+                                <h3>Basic Details</h3>
+                                
+                                <div class="form-group">
+                                    <label for="room-title">Room Title*</label>
+                                    <input type="text" id="room-title" name="room-title" placeholder="e.g., Cozy Room in Thamel" required>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="room-type">Room Type*</label>
+                                        <select id="room-type" name="room-type" required>
+                                            <option value="">Select Room Type</option>
+                                            <option value="shared">Shared Room</option>
+                                            <option value="private">Private Room</option>
+                                            <option value="apartment">Full Apartment</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="furnishing">Furnishing*</label>
+                                        <select id="furnishing" name="furnishing" required>
+                                            <option value="">Select Furnishing Type</option>
+                                            <option value="furnished">Furnished</option>
+                                            <option value="unfurnished">Unfurnished</option>
+                                            <option value="semi-furnished">Semi-Furnished</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="rent-amount">Monthly Rent (NPR)*</label>
+                                        <input type="number" id="rent-amount" name="rent-amount" placeholder="e.g., 10000" min="0" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="deposit-amount">Security Deposit (NPR)</label>
+                                        <input type="number" id="deposit-amount" name="deposit-amount" placeholder="e.g., 20000" min="0">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="room-description">Room Description*</label>
+                                    <textarea id="room-description" name="room-description" rows="5" placeholder="Describe your room, including size, features, and any special notes..." required></textarea>
+                                </div>
+                                
+                                <div class="form-buttons">
+                                    <button type="button" class="btn btn-primary next-step">Next: Room Features</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 2: Room Features -->
+                            <div class="form-step" data-step="2">
+                                <h3>Room Features & Location</h3>
+                                
+                                <div class="form-group">
+                                    <label for="location-area">Area/Neighborhood*</label>
+                                    <select id="location-area" name="location-area" required>
+                                        <option value="">Select Area</option>
+                                        <option value="thamel">Thamel</option>
+                                        <option value="baluwatar">Baluwatar</option>
+                                        <option value="lazimpat">Lazimpat</option>
+                                        <option value="patan">Patan</option>
+                                        <option value="bhaktapur">Bhaktapur</option>
+                                        <option value="kirtipur">Kirtipur</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group" id="other-location-group" style="display: none;">
+                                    <label for="other-location">Specify Location*</label>
+                                    <input type="text" id="other-location" name="other-location" placeholder="Enter your location">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="full-address">Full Address*</label>
+                                    <input type="text" id="full-address" name="full-address" placeholder="e.g., Near Thamel Chowk, House #123" required>
+                                    <p class="form-note">This will not be publicly visible until you approve a renter</p>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Amenities Available</label>
+                                    <div class="checkbox-grid">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="amenities" value="wifi"> WiFi
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="amenities" value="attached-bathroom"> Attached Bathroom
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="amenities" value="kitchen"> Kitchen Access
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="amenities" value="hot-water"> Hot Water
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="amenities" value="parking"> Parking
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="amenities" value="tv"> TV
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="amenities" value="washing-machine"> Washing Machine
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="amenities" value="balcony"> Balcony
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="amenities" value="electricity-backup"> Electricity Backup
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="amenities" value="water-filter"> Water Filter
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="house-rules">House Rules</label>
+                                    <textarea id="house-rules" name="house-rules" rows="4" placeholder="Any specific rules for tenants? (e.g., no smoking, quiet hours, etc.)"></textarea>
+                                </div>
+                                
+                                <div class="form-buttons">
+                                    <button type="button" class="btn btn-secondary prev-step">Previous</button>
+                                    <button type="button" class="btn btn-primary next-step">Next: Upload Photos</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 3: Photos -->
+                            <div class="form-step" data-step="3">
+                                <h3>Upload Photos</h3>
+                                <p class="form-note">Upload clear photos of your room to attract potential tenants. You can upload up to 10 photos.</p>
+                                
+                                <div class="form-group">
+                                    <div class="photo-upload-container">
+                                        <div class="photo-upload-area" id="photo-upload-area">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <p>Drag & drop photos here or click to browse</p>
+                                            <span class="upload-hint">Supported formats: JPG, PNG, GIF (Max 10 photos)</span>
+                                            <input type="file" id="photo-upload" name="photo-upload" accept="image/*" multiple style="display: none;">
+                                        </div>
+                                        
+                                        <div class="photo-preview" id="photo-preview">
+                                            <!-- Photo previews will be added here dynamically -->
+                                        </div>
+                                    </div>
+                                    <p class="form-note">First photo will be used as the main image. Drag to reorder.</p>
+                                </div>
+                                
+                                <div class="form-buttons">
+                                    <button type="button" class="btn btn-secondary prev-step">Previous</button>
+                                    <button type="button" class="btn btn-primary next-step">Next: Contact Info</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 4: Contact Info -->
+                            <div class="form-step" data-step="4">
+                                <h3>Contact Information</h3>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="owner-name">Your Name*</label>
+                                        <input type="text" id="owner-name" name="owner-name" placeholder="Your full name" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="owner-type">You are a*</label>
+                                        <select id="owner-type" name="owner-type" required>
+                                            <option value="">Select</option>
+                                            <option value="owner">Property Owner</option>
+                                            <option value="caretaker">Caretaker</option>
+                                            <option value="current-tenant">Current Tenant</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="phone-number">Phone Number*</label>
+                                        <input type="tel" id="phone-number" name="phone-number" placeholder="e.g., 9812345678" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="whatsapp-number">WhatsApp Number</label>
+                                        <input type="tel" id="whatsapp-number" name="whatsapp-number" placeholder="e.g., 9812345678">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email Address*</label>
+                                    <input type="email" id="email" name="email" placeholder="Your email address" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="best-contact-time">Best Time to Contact</label>
+                                    <input type="text" id="best-contact-time" name="best-contact-time" placeholder="e.g., Weekdays after 5 PM">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="terms" required>
+                                        I agree to the <a href="#" class="terms-link">Terms and Conditions</a> of KothaKhoj
+                                    </label>
+                                </div>
+                                
+                                <div class="form-buttons">
+                                    <button type="button" class="btn btn-secondary prev-step">Previous</button>
+                                    <button type="button" class="btn btn-primary" id="preview-listing">Preview Listing</button>
+                                    <button type="submit" class="btn btn-success">Submit Listing</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>KothaKhoj</h3>
+                        <p>Finding your perfect room in Kathmandu made simple, direct, and commission-free.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="listings.html">Find Rooms</a></li>
+                            <li><a href="post-room.html">Post a Room</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Popular Areas</h3>
+                        <ul>
+                            <li><a href="listings.html?location=thamel">Thamel</a></li>
+                            <li><a href="listings.html?location=baluwatar">Baluwatar</a></li>
+                            <li><a href="listings.html?location=lazimpat">Lazimpat</a></li>
+                            <li><a href="listings.html?location=patan">Patan</a></li>
+                            <li><a href="listings.html?location=bhaktapur">Bhaktapur</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Thamel, Kathmandu, Nepal</p>
+                        <p><i class="fas fa-phone"></i> +977 9812345678</p>
+                        <p><i class="fas fa-envelope"></i> info@kothakhoj.com</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 KothaKhoj. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="modal">
+        <div class="modal-content preview-modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Listing Preview</h2>
+            <div id="listing-preview">
+                <!-- Preview content will be generated dynamically -->
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" id="edit-listing">Edit Listing</button>
+                <button class="btn btn-success" id="confirm-listing">Submit Listing</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/post-room.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
+

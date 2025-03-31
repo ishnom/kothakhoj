@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details - KothaKhoj</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="theme-container">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>KothaKhoj</h1>
+                        <p>Find Your Perfect Room</p>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html" class="active">Rooms</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="nav-buttons">
+                        <a href="post-room.html" class="btn btn-primary">Post a Room</a>
+                        <button id="theme-toggle" class="btn-icon">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="index.html">Home</a> &gt; 
+                    <a href="listings.html">Rooms</a> &gt; 
+                    <span id="room-title-breadcrumb">Room Details</span>
+                </div>
+                
+                <div class="room-details" id="room-details">
+                    <!-- Room details will be loaded dynamically -->
+                    <div class="room-details-loading">
+                        <div class="spinner"></div>
+                        <p>Loading room details...</p>
+                    </div>
+                </div>
+                
+                <div class="similar-rooms">
+                    <h2>Similar Rooms</h2>
+                    <div class="room-grid" id="similar-rooms">
+                        <!-- Similar rooms will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>KothaKhoj</h3>
+                        <p>Finding your perfect room in Kathmandu made simple, direct, and commission-free.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="listings.html">Find Rooms</a></li>
+                            <li><a href="post-room.html">Post a Room</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Popular Areas</h3>
+                        <ul>
+                            <li><a href="listings.html?location=thamel">Thamel</a></li>
+                            <li><a href="listings.html?location=baluwatar">Baluwatar</a></li>
+                            <li><a href="listings.html?location=lazimpat">Lazimpat</a></li>
+                            <li><a href="listings.html?location=patan">Patan</a></li>
+                            <li><a href="listings.html?location=bhaktapur">Bhaktapur</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Thamel, Kathmandu, Nepal</p>
+                        <p><i class="fas fa-phone"></i> +977 9812345678</p>
+                        <p><i class="fas fa-envelope"></i> info@kothakhoj.com</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 KothaKhoj. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Image Gallery Modal -->
+    <div id="gallery-modal" class="modal">
+        <div class="modal-content gallery-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="gallery-container">
+                <div class="gallery-main">
+                    <img id="gallery-main-image" src="/placeholder.svg" alt="Room Image">
+                </div>
+                <div class="gallery-controls">
+                    <button id="gallery-prev" class="btn-icon"><i class="fas fa-chevron-left"></i></button>
+                    <div class="gallery-thumbnails" id="gallery-thumbnails">
+                        <!-- Thumbnails will be loade  id="gallery-thumbnails">
+                        <!-- Thumbnails will be loaded dynamically -->
+                    </div>
+                    <button id="gallery-next" class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="gallery-counter">
+                    <span id="gallery-current">1</span> / <span id="gallery-total">5</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/room-details.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
+
