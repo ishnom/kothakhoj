@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Apply saved theme or default to white
   if (savedTheme === "dark") {
     themeContainer.classList.add("dark")
+    document.querySelector("footer").classList.add("dark-footer")
+    document.querySelector("footer").classList.remove("light-footer")
     if (themeToggle) {
       const themeIcon = themeToggle.querySelector("i")
       if (themeIcon) {
@@ -20,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   } else {
     themeContainer.classList.remove("dark")
+    document.querySelector("footer").classList.add("light-footer")
+    document.querySelector("footer").classList.remove("dark-footer")
     if (themeToggle) {
       const themeIcon = themeToggle.querySelector("i")
       if (themeIcon) {
@@ -42,11 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
           themeIcon.classList.remove("fa-moon")
           themeIcon.classList.add("fa-sun")
           localStorage.setItem("theme", "dark")
+          document.querySelector("footer").classList.add("dark-footer")
+          document.querySelector("footer").classList.remove("light-footer")
           console.log("Theme set to dark (black)")
         } else {
           themeIcon.classList.remove("fa-sun")
           themeIcon.classList.add("fa-moon")
           localStorage.setItem("theme", "white")
+          document.querySelector("footer").classList.add("light-footer")
+          document.querySelector("footer").classList.remove("dark-footer")
           console.log("Theme set to white")
         }
       }

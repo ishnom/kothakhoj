@@ -4,6 +4,7 @@
   --primary-color: #ff3b3b;
   --primary-dark: #d32f2f;
   --primary-light: #ff6b6b;
+  --primary-rgb: 255, 59, 59;
 
   /* Secondary Colors - Blue & Yellow Mix */
   --secondary-color: #3498db;
@@ -77,8 +78,8 @@
   --z-index-tooltip: 1070;
 }
 
-/* Light Theme Variables */
-.light {
+/* White Theme Variables */
+.theme-container {
   --primary-color: #ff3b3b;
   --primary-dark: #d32f2f;
   --primary-light: #ff6b6b;
@@ -87,11 +88,34 @@
   --secondary-dark: #2980b9;
   --secondary-light: #5dade2;
 
-  --light-color: #f8f9fa;
-  --dark-color: #121212;
+  --light-color: #000000;
+  --dark-color: #ffffff;
   --gray-color: #6c757d;
   --light-gray: #e9ecef;
-  --dark-gray: #343a40;
+  --dark-gray: #f8f9fa;
+
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark Theme Variables */
+.theme-container.dark {
+  --primary-color: #ff3b3b;
+  --primary-dark: #d32f2f;
+  --primary-light: #ff6b6b;
+
+  --secondary-color: #3498db;
+  --secondary-dark: #2980b9;
+  --secondary-light: #5dade2;
+
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --gray-color: #adb5bd;
+  --light-gray: #343a40;
+  --dark-gray: #212529;
+
+  background-color: #000000;
+  color: #ffffff;
 }
 
 /* Reset and Base Styles */
@@ -109,15 +133,13 @@ html {
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: var(--light-color);
-  background-color: var(--dark-color);
-  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 .theme-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 .container {
@@ -331,30 +353,6 @@ ol {
 }
 
 /* Forms */
-.form-group {
-  margin-bottom: var(--spacing-lg);
-}
-
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -0.5rem;
-  margin-left: -0.5rem;
-}
-
-.form-row > .form-group {
-  flex: 1 0 0%;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
-
-label {
-  display: inline-block;
-  margin-bottom: var(--spacing-xs);
-  font-weight: 600;
-  color: var(--light-color);
-}
-
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -378,6 +376,39 @@ textarea {
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="number"],
+.dark input[type="tel"],
+.dark input[type="url"],
+.dark input[type="search"],
+.dark input[type="date"],
+.dark select,
+.dark textarea {
+  background-color: var(--dark-gray);
+  color: var(--light-color);
+  border-color: var(--light-gray);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  color: var(--light-color);
+  background-color: var(--dark-gray);
+  border-color: var(--primary-light);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(255, 59, 59, 0.25);
+}
+
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus {
+  color: var(--light-color);
+  background-color: var(--dark-gray);
+  border-color: var(--primary-light);
+}
+
 .light input[type="text"],
 .light input[type="email"],
 .light input[type="password"],
@@ -391,16 +422,6 @@ textarea {
   background-color: white;
   color: var(--dark-color);
   border-color: var(--light-gray);
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  color: var(--light-color);
-  background-color: var(--dark-gray);
-  border-color: var(--primary-light);
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(255, 59, 59, 0.25);
 }
 
 .light input:focus,
@@ -450,8 +471,8 @@ header {
   transition: background-color var(--transition-normal);
 }
 
-.light header {
-  background-color: white;
+.dark header {
+  background-color: var(--dark-gray);
 }
 
 header .container {
@@ -508,8 +529,8 @@ nav ul li a {
   position: relative;
 }
 
-.light nav ul li a {
-  color: var(--dark-color);
+.dark nav ul li a {
+  color: var(--light-color);
 }
 
 nav ul li a:after {
@@ -758,6 +779,11 @@ nav ul li a.active {
   border: 1px solid rgba(255, 59, 59, 0.1);
 }
 
+.dark .room-card {
+  background-color: var(--dark-gray);
+  border: 1px solid rgba(255, 59, 59, 0.1);
+}
+
 .light .room-card {
   background-color: white;
   border: 1px solid rgba(255, 59, 59, 0.1);
@@ -837,6 +863,10 @@ nav ul li a.active {
   font-size: var(--font-size-lg);
   font-weight: 600;
   margin-bottom: var(--spacing-xs);
+  color: var(--light-color);
+}
+
+.dark .room-title {
   color: var(--light-color);
 }
 
@@ -3429,5 +3459,118 @@ footer:before {
     transform: translateX(100%);
     opacity: 0;
   }
+}
+
+/* Add these styles after the footer section to fix the white theme footer visibility */
+
+/* Footer Light Theme Styles */
+.light footer {
+  background-color: var(--dark-gray);
+  color: white;
+}
+
+.light .footer-section h3 {
+  color: white;
+}
+
+.light .footer-section p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.light .footer-section ul li a {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.light .footer-section ul li a:hover {
+  color: white;
+}
+
+.light .social-link {
+  color: white;
+}
+
+.light .footer-bottom p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Add these styles at the end of your CSS file to fix the footer in light mode */
+
+/* Direct footer styling for light and dark modes */
+.light-footer {
+  background-color: #ffffff !important;
+}
+
+.light-footer h3,
+.light-footer h4 {
+  color: #121212 !important;
+}
+
+.light-footer p,
+.light-footer ul li,
+.light-footer ul li a,
+.light-footer .footer-bottom p {
+  color: #333333 !important;
+}
+
+.light-footer ul li a:before {
+  color: var(--primary-color) !important;
+}
+
+.light-footer ul li a:hover {
+  color: var(--primary-color) !important;
+}
+
+.light-footer .social-link {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: #333333 !important;
+}
+
+.light-footer .social-link:hover {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.light-footer .footer-bottom {
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Dark footer styles */
+.dark-footer {
+  background-color: var(--dark-gray) !important;
+}
+
+.dark-footer h3,
+.dark-footer h4 {
+  color: white !important;
+}
+
+.dark-footer p,
+.dark-footer ul li,
+.dark-footer ul li a {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.dark-footer ul li a:hover {
+  color: white !important;
+}
+
+.dark-footer .social-link {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+.dark-footer .footer-bottom p {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Ensure CTA section remains red in both themes */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%) !important;
+  color: white !important;
+}
+
+.cta-section h2,
+.cta-section p {
+  color: white !important;
 }
 
