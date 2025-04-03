@@ -2567,7 +2567,7 @@ footer:before {
 }
 
 .faq-item {
-  background-color: var(--dark-color);
+  background-color: var(--dark-gray);
   border-radius: var(--border-radius-md);
   margin-bottom: var(--spacing-md);
   overflow: hidden;
@@ -2617,6 +2617,25 @@ footer:before {
 .faq-item.active .faq-answer {
   padding: 0 var(--spacing-lg) var(--spacing-md);
   max-height: 500px;
+}
+
+/* Make sure the FAQ section is responsive */
+@media (max-width: 768px) {
+  .faq-container {
+    max-width: 100%;
+  }
+
+  .faq-question {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .faq-question h4 {
+    font-size: var(--font-size-md);
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+  }
 }
 
 /* Contact Page */
