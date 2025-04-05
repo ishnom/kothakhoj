@@ -584,6 +584,4 @@ const DataService = {
   },
 }
 
-// Export the DataService
-export default DataService
 
