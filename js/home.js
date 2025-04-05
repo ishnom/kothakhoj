@@ -10,24 +10,24 @@ document.addEventListener("DOMContentLoaded", () => {
           id: "1",
           title: "Cozy Studio Apartment",
           price: 8000,
-          location: "Pulchowk",
+          location: "Downtown",
           type: "Apartment",
           furnishing: "Furnished",
           amenities: ["wifi", "kitchen", "tv"],
-          images: ["images/room.jpg"],
-          owner: { name: "Hari bdr", avatar: "images/female.jpeg" },
+          images: ["images/kotha1.jpeg"],
+          owner: { name: "Bimal thapa", avatar: "images/profile.jpg" },
           postedDate: new Date().toISOString(),
         },
         {
           id: "2",
           title: "Spacious 2-Bedroom House",
           price: 15000,
-          location: "Anamnagar",
+          location: "Suburb",
           type: "House",
           furnishing: "Unfurnished",
           amenities: ["parking", "balcony", "attached-bathroom"],
-          images: ["images/room.jpg"],
-          owner: { name: "Bekhaman Maharjan", avatar: "images/female.jpeg" },
+          images: ["images/kotha2.jpeg"],
+          owner: { name: "Bimal thapa", avatar: "images/profile.jpg" },
           postedDate: new Date().toISOString(),
         },
         {
@@ -38,83 +38,240 @@ document.addEventListener("DOMContentLoaded", () => {
           type: "Loft",
           furnishing: "Semi-furnished",
           amenities: ["wifi", "washing-machine", "hot-water"],
-          images: ["images/room.jpg"],
-          owner: { name: "Durga Parsai", avatar: "images/female.jpeg" },
+          images: ["images/kotha3.jpeg"],
+          owner: { name: "David Lee", avatar: "images/profile.jpg" },
           postedDate: new Date().toISOString(),
         },
       ]
       return rooms.slice(0, Math.min(count, rooms.length))
     },
+    getAllRooms: () => {
+      // Replace with actual data fetching logic
+      const rooms = [
+        {
+          id: "1",
+          title: "Cozy Studio Apartment",
+          price: 8000,
+          location: "pulchowk",
+          type: "Apartment",
+          furnishing: "Furnished",
+          amenities: ["wifi", "kitchen", "tv"],
+          images: ["images/kotha1.jpeg"],
+          owner: { name: "Bimal thapa", avatar: "images/profile.jpg" },
+          postedDate: new Date().toISOString(),
+        },
+        {
+          id: "2",
+          title: "Spacious 2-Bedroom House",
+          price: 15000,
+          location: "patan",
+          type: "House",
+          furnishing: "Unfurnished",
+          amenities: ["parking", "balcony", "attached-bathroom"],
+          images: ["images/kotha2.jpeg"],
+          owner: { name: "Bimal thapa", avatar: "images/profile.jpg" },
+          postedDate: new Date().toISOString(),
+        },
+        {
+          id: "3",
+          title: "Modern Loft",
+          price: 12000,
+          location: "pokhra",
+          type: "Loft",
+          furnishing: "Semi-furnished",
+          amenities: ["wifi", "washing-machine", "hot-water"],
+          images: ["images/kotha3.jpeg"],
+          owner: { name: "Bimal thapa", avatar: "images/profile.jpg" },
+          postedDate: new Date().toISOString(),
+        },
+        {
+          id: "4",
+          title: "Luxury Penthouse",
+          price: 30000,
+          location: "",
+          type: "Penthouse",
+          furnishing: "Furnished",
+          amenities: ["wifi", "kitchen", "tv", "pool", "gym"],
+          images: ["images/kotha1.jpeg"],
+          owner: { name: "Ram Thakur", avatar: "images/profile.jpg" },
+          postedDate: new Date().toISOString(),
+        },
+        {
+          id: "5",
+          title: "Charming Cottage",
+          price: 900,
+          location: "Countryside",
+          type: "Cottage",
+          furnishing: "Semi-furnished",
+          amenities: ["garden", "parking", "fireplace"],
+          images: ["image5.jpg"],
+          owner: { name: "Michael Brown", avatar: "avatar5.jpg" },
+          postedDate: new Date().toISOString(),
+        },
+      ]
+      return rooms
+    },
   }
 
   // Load Featured Rooms
-  const featuredRoomsContainer = document.getElementById("featured-rooms")
+  function loadFeaturedRooms(DataService) {
+    const featuredRoomsContainer = document.getElementById("featured-rooms")
+    if (!featuredRoomsContainer) return
 
-  if (featuredRoomsContainer) {
-    // Get featured rooms from data service
-    const featuredRooms = DataService.getFeaturedRooms(3)
+    try {
+      // Get all rooms from DataService
+      const allRooms = DataService.getAllRooms()
 
-    if (featuredRooms.length === 0) {
-      featuredRoomsContainer.innerHTML = '<p class="empty-state">No rooms available at the moment</p>'
-      return
+      // Sort by newest first
+      allRooms.sort((a, b) => new Date(b.postedDate) - new Date(a.postedDate))
+
+      // Use the first 3 rooms as featured rooms (most recent ones)
+      const featuredRooms = allRooms.slice(0, 3)
+
+      if (featuredRooms.length === 0) {
+        featuredRoomsContainer.innerHTML = '<p class="empty-state">No rooms available at the moment</p>'
+        return
+      }
+
+      let html = ""
+      featuredRooms.forEach((room) => {
+        // Format date
+        const postedDate = new Date(room.postedDate)
+        const formattedDate = formatDate(postedDate)
+
+        // Check if room is saved
+        const savedRooms = JSON.parse(localStorage.getItem("savedRooms") || "[]")
+        const isSaved = savedRooms.includes(room.id)
+
+        html += `
+      <div class="room-card">
+        <a href="room-details.html?id=${room.id}" class="room-link" data-room-id="${room.id}">
+          <div class="room-image">
+            <img src="${room.images[0]}" alt="${room.title}">
+            <div class="room-type">${room.furnishing} ${room.type}</div>
+            <div class="room-save ${isSaved ? "saved" : ""}" data-room-id="${room.id}" title="${isSaved ? "Remove from Saved" : "Save Room"}">
+              <i class="${isSaved ? "fas" : "far"} fa-heart"></i>
+            </div>
+          </div>
+          <div class="room-content">
+            <div class="room-price">Rs. ${room.price}/month</div>
+            <h3 class="room-title">${room.title}</h3>
+            <div class="room-location">
+              <i class="fas fa-map-marker-alt"></i> ${room.location}
+            </div>
+            <div class="room-features">
+              ${room.amenities
+                .slice(0, 3)
+                .map(
+                  (amenity) => `
+                  <div class="room-feature">
+                    <i class="fas fa-${getAmenityIcon(amenity)}"></i> ${formatAmenityName(amenity)}
+                  </div>
+                `,
+                )
+                .join("")}
+            </div>
+          </div>
+        </a>
+        <div class="room-footer">
+          <div class="room-owner">
+            <img src="${room.owner.avatar}" alt="${room.owner.name}">
+            <span>${room.owner.name}</span>
+          </div>
+          <div class="room-contact">
+            <a href="#" class="contact-icon auth-required" data-auth="true" data-action="whatsapp" title="Contact via WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" class="contact-icon auth-required" data-auth="true" data-action="messenger" title="Contact via Messenger">
+              <i class="fab fa-facebook-messenger"></i>
+            </a>
+          </div>
+          <div class="room-date">${formattedDate}</div>
+        </div>
+      </div>
+    `
+      })
+
+      featuredRoomsContainer.innerHTML = html
+
+      // Initialize save buttons
+      initSaveButtons()
+
+      // Setup authentication check for contact buttons
+      setupContactButtonsAuth()
+
+      console.log("Featured rooms loaded successfully")
+    } catch (error) {
+      console.error("Error loading featured rooms:", error)
+      featuredRoomsContainer.innerHTML = '<p class="empty-state">Error loading rooms. Please try again later.</p>'
     }
+  }
 
-    let html = ""
-    featuredRooms.forEach((room) => {
-      // Format date
-      const postedDate = new Date(room.postedDate)
-      const formattedDate = formatDate(postedDate)
+  // Setup authentication check for contact buttons
+  function setupContactButtonsAuth() {
+    document.addEventListener("click", (e) => {
+      // Check if clicked element is an auth-required button
+      if (e.target.classList.contains("auth-required") || e.target.closest(".auth-required")) {
+        const button = e.target.classList.contains("auth-required") ? e.target : e.target.closest(".auth-required")
 
-      // Check if room is saved
-      const savedRooms = JSON.parse(localStorage.getItem("savedRooms") || "[]")
-      const isSaved = savedRooms.includes(room.id)
+        e.preventDefault()
 
-      html += `
-                <div class="room-card">
-                    <a href="room-details.html?id=${room.id}">
-                        <div class="room-image">
-                            <img src="${room.images[0]}" alt="${room.title}">
-                            <div class="room-type">${room.furnishing} ${room.type}</div>
-                            <div class="room-save ${isSaved ? "saved" : ""}" data-room-id="${room.id}" title="${isSaved ? "Remove from Saved" : "Save Room"}">
-                                <i class="${isSaved ? "fas" : "far"} fa-heart"></i>
-                            </div>
-                        </div>
-                        <div class="room-content">
-                            <div class="room-price">Rs. ${room.price}/month</div>
-                            <h3 class="room-title">${room.title}</h3>
-                            <div class="room-location">
-                                <i class="fas fa-map-marker-alt"></i> ${room.location}
-                            </div>
-                            <div class="room-features">
-                                ${room.amenities
-                                  .slice(0, 3)
-                                  .map(
-                                    (amenity) => `
-                                    <div class="room-feature">
-                                        <i class="fas fa-${getAmenityIcon(amenity)}"></i> ${formatAmenityName(amenity)}
-                                    </div>
-                                `,
-                                  )
-                                  .join("")}
-                            </div>
-                        </div>
-                    </a>
-                    <div class="room-footer">
-                        <div class="room-owner">
-                            <img src="${room.owner.avatar}" alt="${room.owner.name}">
-                            <span>${room.owner.name}</span>
-                        </div>
-                        <div class="room-date">${formattedDate}</div>
-                    </div>
-                </div>
-            `
+        // Show login required modal
+        showLoginRequiredModal(button.getAttribute("data-action"))
+      }
+    })
+  }
+
+  // Show login required modal
+  function showLoginRequiredModal(action) {
+    // Create modal
+    const modal = document.createElement("div")
+    modal.className = "modal"
+    modal.id = "login-required-modal"
+    modal.style.display = "block"
+
+    const modalContent = document.createElement("div")
+    modalContent.className = "modal-content"
+
+    let actionText = "contact the owner"
+    if (action === "call") actionText = "call the owner"
+    if (action === "whatsapp") actionText = "message on WhatsApp"
+    if (action === "messenger") actionText = "message on Messenger"
+
+    modalContent.innerHTML = `
+    <span class="close-modal">&times;</span>
+    <div class="login-required-message">
+      <i class="fas fa-lock"></i>
+      <h3>Login Required</h3>
+      <p>You need to login to ${actionText}.</p>
+      <div class="login-buttons">
+        <a href="login.html?redirect=${encodeURIComponent(window.location.href)}" class="btn btn-primary">Login</a>
+        <a href="signup.html?redirect=${encodeURIComponent(window.location.href)}" class="btn btn-secondary">Sign Up</a>
+      </div>
+    </div>
+  `
+
+    modal.appendChild(modalContent)
+    document.body.appendChild(modal)
+    document.body.style.overflow = "hidden"
+
+    // Close modal
+    const closeModal = modal.querySelector(".close-modal")
+    closeModal.addEventListener("click", () => {
+      modal.remove()
+      document.body.style.overflow = "auto"
     })
 
-    featuredRoomsContainer.innerHTML = html
-
-    // Initialize save buttons
-    initSaveButtons()
+    // Close modal when clicking outside
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.remove()
+        document.body.style.overflow = "auto"
+      }
+    })
   }
+
+  loadFeaturedRooms(DataService)
 
   // Handle search form submission
   const searchForm = document.getElementById("search-form")
